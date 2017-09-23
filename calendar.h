@@ -11,20 +11,24 @@
 //TODO 这里注意一下 ifndef 这种情况
 #ifndef PERPETUAL_CALENDAR_CALENDAR_H
 #define PERPETUAL_CALENDAR_CALENDAR_H
-int command (char str[]);
 
-// 基于链表实现
-struct days {
+// 基于顺序表来实现
+typedef  struct {
     int today;
     int week_day;
-    struct days *next_day;
-};
+} days ;
 
-struct month {
+typedef struct {
     int day_count ;
-    struct days day_list;
-};
+    // 一个月第一天的是周几的指代码
+    int week_name;
+    days *day_base;
+} month;
 #endif //PERPETUAL_CALENDAR_CALENDAR_H
+
+// 全局变量
+extern char week[7][5];
+extern int month_code[];
 
 typedef int bool;
 
@@ -35,8 +39,19 @@ typedef int bool;
 // in date.c
 bool is_leap_year( int year );
 int week_day_name( int year, int month , int month_code[] );
+int get_month_days (int year, int month );
 
 // in output.c
-void show_month();
+void show_month( month *specify_month );
 void refresh( int time );
+void print_header();
+void print_footer();
 char *current_time();
+
+// in sq_list.c
+bool bing_data(month *specify_month );
+bool init_list( month *specify_month, int year, int month );
+
+// in command.c
+int *command (char str[]);
+

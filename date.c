@@ -3,7 +3,6 @@
 //
 #include "calendar.h"
 
-extern int month_code;
 //
 /**
  * 判断输入的年份是否是闰年
@@ -84,3 +83,27 @@ int week_day_name ( int year , int month ,int month_code[] ) {
     return week_day;
 
 }
+/**
+ * 得到指定年月的月份天数
+ * @param year  要得到月份天数的指定年
+ * @param month 要得到月份天数的指定月
+ * @return int  指定年月的月份天数
+ */
+int get_month_days (int year, int month ) {
+    int month_days = 0;
+    if (month == 2 ) {
+        // 平年 28 天，闰年 29 天
+        month_days = is_leap_year( year ) ? 29 : 28;
+    } else {
+        // 奥义：双重三目运算符
+        month_days = month < 8 ? month % 2 == 0 ? 30 : 31 : month % 2 == 1 ? 30 : 31 ;
+    }
+    return month_days;
+}
+
+//int make_month_list (int year, int month ) {
+//    month specify_month;
+//    specify_month.day_count = get_month_days( year, month );
+//
+//    return 0;
+//}
