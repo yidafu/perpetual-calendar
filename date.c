@@ -78,7 +78,7 @@ int week_day_name ( int year , int month ,int month_code[] ) {
     if( year > 1999 && year < 3000 ) {
         year_code = year_code_2000( year );
     }
-    week_day = year_code + month_code[ month - 1 ] + 1 ;
+    week_day = year_code + 1 + month_code[ month - 1 ] + 1 ;
 
     return week_day;
 

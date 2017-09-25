@@ -34,6 +34,7 @@ void show_month ( month *specify_month ) {
 void print_header() {
     printf("\t欢迎使用粗糙牌万年历\n");
     printf("-------|*****************|-------\n");
+    printf("NOW: %s\n",current_time());
     for (int i = 0 ; i < 7 ; i ++ ) {
         printf("%s\t",week[i]);
     }

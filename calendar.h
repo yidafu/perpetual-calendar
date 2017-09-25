@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
+#include <conio.h>
 
 //TODO 这里注意一下 ifndef 这种情况
 #ifndef PERPETUAL_CALENDAR_CALENDAR_H
