@@ -3,7 +3,6 @@
 //
 #include "calendar.h"
 
-//
 /**
  * 判断输入的年份是否是闰年
  * @param year 待判断的年份
@@ -57,7 +56,7 @@ int year_code_2000 ( int year ) {
 void right_month_code ( int year, int *month_code ) {
     if( is_leap_year( year ) ) {
         *month_code = 5,
-        *( month_code + 1 )= 1;
+        *( month_code + 1 ) = 1;
     };
 }
 
@@ -78,7 +77,7 @@ int week_day_name ( int year , int month ,int month_code[] ) {
     if( year > 1999 && year < 3000 ) {
         year_code = year_code_2000( year );
     }
-    week_day = year_code + 1 + month_code[ month - 1 ] + 1 ;
+    week_day = year_code + month_code[ month - 1 ] + 2 ;
 
     return week_day;
 

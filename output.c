@@ -8,7 +8,15 @@
 #include "calendar.h"
 
 void bootstrap () {
-    // TODO
+    char chars[4][4] = {"\\","|","/","--"};
+    char chars2[6][8] = {".","..","...","... .","... ..","... ..."};
+    char ch = '%';
+    for (int i = 1 ; i < 100; i ++ ) {
+        printf("root@lap-tap: ~$ program is loading!");
+        printf(" %d %c  %s", i, ch, chars2[ i % 6] );
+
+        refresh(10);
+    }
 }
 
 void show_month ( month *specify_month ) {
@@ -16,7 +24,7 @@ void show_month ( month *specify_month ) {
 //        printf("%s\t",week[i]);
 //    }
     int day_index = 0, day = 0;
-    for ( ; day_index < 30 ; day ++ ) {
+    for ( ; day_index < (*specify_month).day_count ; day ++ ) {
         days weekday = (*specify_month).day_base[day_index];
         int today = weekday.today;
         int week_day = weekday.week_day;
@@ -32,17 +40,32 @@ void show_month ( month *specify_month ) {
     }
 }
 void print_header() {
-    printf("\t欢迎使用粗糙牌万年历\n");
-    printf("-------|*****************|-------\n");
+    printf("\tWelcome to use Cu Cao Pai calender !\n");
+    printf("-------|***********************************|-------\n");
     printf("NOW: %s\n",current_time());
+//    for (int i = 0 ; i < 7 ; i ++ ) {
+//        printf("%s\t",week[i]);
+//    }
+}
+void print_nav (int year, int month) {
+    printf("\n\nthis %d/%d : \n",year,month);
     for (int i = 0 ; i < 7 ; i ++ ) {
         printf("%s\t",week[i]);
     }
 }
 void print_footer() {
-    printf("\n请输入指定的年月（例如：2017/9)或者使用左右方向键：（退出请输入exit）");
+    printf("\nplase type command(like：2017/9 or 2017. And type exit to exit):");
     printf("\nroot@lap-tap:~$ ");
 }
+
+void see_you() {
+    printf("|-------------------------------|\n");
+    printf("|\tsee you next time!\t|\n");
+    printf("|-------------------------------|\n");
+    Sleep(2000);
+}
+
+
 void refresh ( int time ) {
     Sleep(time);
     system("cls");

@@ -43,10 +43,13 @@ int week_day_name( int year, int month , int month_code[] );
 int get_month_days (int year, int month );
 
 // in output.c
+void bootstrap();
 void show_month( month *specify_month );
 void refresh( int time );
 void print_header();
+void print_nav(int year, int month);
 void print_footer();
+void see_you();
 char *current_time();
 
 // in sq_list.c

@@ -12,14 +12,12 @@ bool init_list ( month *specify_month, int year, int month ) {
     new_day_base->today = 1;
     new_day_base->week_day = 2;
     (*specify_month).day_base = new_day_base;
-//    printf("\n%d\n",sizeof(specify_month->day_base[1]));
     if ( (*specify_month).day_base == NULL ) {
         exit(1);
     }
 //    FIXME 为什么这里的 &specify_month 的地址不对了？？
 //    printf("%d",&specify_month);
     return true;
-//    return 0;
 }
 bool bing_data ( month *specify_month ) {
 
