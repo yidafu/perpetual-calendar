@@ -28,7 +28,7 @@ int *command (char str[]) {
     char year_str[5],month_str[3];
     int year,
         month,
-        arr[2];
+        arr[2] = {0};
 
     get_month( str, month_str );
     get_year( str, year_str );

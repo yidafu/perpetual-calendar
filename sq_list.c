@@ -8,6 +8,9 @@ bool init_list ( month *specify_month, int year, int month ) {
     days *new_day_base;
     (*specify_month).day_count = get_month_days( year , month );
     (*specify_month).week_name = week_day_name( year, month , month_code );
+    if( (*specify_month).day_base != NULL ) {
+        free( (*specify_month).day_base );
+    }
     new_day_base = (days*) malloc( (*specify_month).day_count * sizeof( days ) );
     new_day_base->today = 1;
     new_day_base->week_day = 2;
@@ -19,6 +22,7 @@ bool init_list ( month *specify_month, int year, int month ) {
 //    printf("%d",&specify_month);
     return true;
 }
+
 bool bing_data ( month *specify_month ) {
 
     int begin_week_name = (*specify_month).week_name;

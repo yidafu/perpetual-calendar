@@ -44,6 +44,7 @@ int get_month_days (int year, int month );
 
 // in output.c
 void bootstrap();
+void display(char *commod_in, month *specify_month);
 void show_month( month *specify_month );
 void refresh( int time );
 void print_header();
