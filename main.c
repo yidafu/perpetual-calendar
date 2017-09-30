@@ -4,7 +4,10 @@
 int month_code[12] = { 6, 2, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4 };
 char week[7][5] = {"sun","mon","tues","wed","thur","fri","sat"};
 
-
+/**
+ * main 函数
+ * @return 0 
+ */
 
 int main() {
     char command_in[50];

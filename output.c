@@ -7,8 +7,11 @@
 
 #include "calendar.h"
 
+/**
+ * 这是个假装程序很大的启（qi）动（pian）函数。
+ * 主要是显示程序的加载进度，用来提升B格
+ */
 void bootstrap () {
-    char chars[4][4] = {"\\","|","/","--"};
     char chars2[6][8] = {".","..","...","... .","... ..","... ..."};
     char ch = '%';
     for (int i = 1 ; i < 100; i ++ ) {
@@ -18,6 +21,14 @@ void bootstrap () {
         refresh(10);
     }
 }
+
+/**
+ * 这个是主要的展示函数。
+ * 通过一系列的函数调用来实现页面的输出。
+ * @param commod_in     传入的要被解析的命令
+ * @param specify_month 这个是存放将要被输出的月份的日期信息的
+ *                      结构体
+ */
 void display(char *commod_in, month *specify_month) {
     print_header();
 
@@ -42,6 +53,12 @@ void display(char *commod_in, month *specify_month) {
     print_footer();
 }
 
+/**
+ * 这个函数主要是将一个月的日期信息格式化输出。
+ * 包括开头的一个月开头的非本月的空格输出。比如，一个月的第一天
+ * 是周五的话，前面的周日到周四先打印 Tab 缩进。
+ * @param specify_month 包含要输出的一个月的所有日期信息的结构体
+ */
 void show_month ( month *specify_month ) {
 
     int day_index = 0, day = 0;
@@ -60,22 +77,39 @@ void show_month ( month *specify_month ) {
         }
     }
 }
+
+/**
+ * 打印本程序的展示页面的头部
+ */
 void print_header() {
     printf("\tWelcome to use Cu Cao Pai calender !\n");
     printf("-------|***********************************|-------\n");
     printf("NOW: %s\n",current_time());
 }
+
+/**
+ * 主要打印每个月份的说明头和星期几的英文缩写
+ * @param year  [description]
+ * @param month [description]
+ */
 void print_nav (int year, int month) {
     printf("\n\n++++++++++ %d/%d ++++++++++ \n",year,month);
     for (int i = 0 ; i < 7 ; i ++ ) {
         printf("%s\t",week[i]);
     }
 }
+
+/**
+ * 打印命令提示行
+ */
 void print_footer() {
-    printf("\nplase type command(like��2017/09 or 2017. And type exit to exit):");
+    printf("\nplase type command(like��2017/09 or 2017. And type exit to exit):");
     printf("\nroot@lap-tap:~$ ");
 }
 
+/**
+ * 打印执行exit命令后的，离开页面，并且是使程序间隔两秒关闭
+ */
 void see_you() {
     printf("|-------------------------------|\n");
     printf("|\tsee you next time!\t|\n");
@@ -83,7 +117,10 @@ void see_you() {
     Sleep(2000);
 }
 
-
+/**
+ * 设置延时，刷新程序页面
+ * @param time 刷新的延时时间
+ */
 void refresh ( int time ) {
     Sleep(time);
     system("cls");

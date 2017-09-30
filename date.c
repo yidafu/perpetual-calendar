@@ -99,10 +99,3 @@ int get_month_days (int year, int month ) {
     }
     return month_days;
 }
-
-//int make_month_list (int year, int month ) {
-//    month specify_month;
-//    specify_month.day_count = get_month_days( year, month );
-//
-//    return 0;
-//}

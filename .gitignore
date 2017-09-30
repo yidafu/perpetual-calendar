@@ -3,3 +3,11 @@ cmake-build-debug/*
 CMakeLists.txt
 
 .idea/*
+
+doc/*.pdf
+
+test.*
+
+doc/设计思路*.pdf
+
+nul
